@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :questions, only: [:index, :new, :edit, :create, :update, :destroy, :show]
-
+  resources :questions do
+    resources :answers, only: [:create, :destroy]
+  end
   # get '/questions', to: 'questions#index' #localhost/questions
   
   # get '/questions/new', to: 'questions#new'
