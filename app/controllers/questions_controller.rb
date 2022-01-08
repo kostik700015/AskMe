@@ -4,7 +4,8 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = @question.answers.build
-    @answers = Answer.order created_at: :desc
+    # @answers = Answer.all.where('question_id=?', @question.id)
+    @answers = @question.answers.order created_at: :desc
   end
 
   def destroy

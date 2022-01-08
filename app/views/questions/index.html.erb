@@ -1,3 +1,7 @@
+<% provide :page_title, 'Questions' %>
+ <% currently_at 'Questions'%>
+ 
+
 <h1 class="mb-4">Questions</h1>
 
 <%= link_to 'New questions', new_question_path, class: 'btn btn-primary btn-lg' %>
@@ -13,7 +17,7 @@
 </time>
 
 <p class="my-2">
-<h3><%= question.body%></h3>
+<%= question.body%>
 </p>
 </section>
 
