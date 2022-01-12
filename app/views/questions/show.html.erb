@@ -8,9 +8,9 @@
 <%= @question.formatted_creation_time%>
 </time>
 
-<p class="lead my-3">
-<%= @question.body %>
-</p>
+<div class="lead my-3">
+<%= sanitize @question.body %> <%# unsecure tags and scripts turned off #%>
+</div>
 
 <%= link_to 'Edit', edit_question_path(@question), class: 'btn btn-secondary' %>
 <%= link_to 'Delete', question_path(@question), class: 'btn btn-danger',
@@ -24,21 +24,9 @@
 
 <h2 class="mt-5">Answers</h2>
 
-<% @answers.each do  |answer|%>
-<article class="mb-3 card">
-<div class="card-body">
-<section class="card-text">
-<small><time datetime="<%= answer.formatted_creation_time %>">
-<%= answer.formatted_creation_time%>
-</time>
+<%= paginate @answers %>
 
-<p class="mt-2 mb-3">
-  <%= answer.body%>
-</p>
-</section>
-<%= link_to 'Delete', question_answer_path(@question, answer), class: 'btn btn-danger btn-sm',
-data: {method: :delete, confirm: "Are you sure?"} %> 
-<%= link_to 'Edit', edit_question_answer_path(@question, answer), class: 'btn btn-secondary btn-sm' %> 
-</div>
-</article>
-<% end %>
+<%= render partial: 'answers/answer', collection: @answers, 
+as: :answer, locals: {question: @question} %>
+
+<%= paginate @answers %>

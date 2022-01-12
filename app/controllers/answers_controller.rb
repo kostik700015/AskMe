@@ -26,7 +26,7 @@ def create
  
     if @answer.update answer_params
       flash[:succes] = "Answer updated!"
-      redirect_to questions_path(@question)
+      redirect_to question_path(@question, anchor: "answer-#{@answer.id}")
     else 
       render :edit
     end

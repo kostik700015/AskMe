@@ -22,6 +22,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+
+gem 'kaminari', '~>1.2'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -34,6 +37,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'faker', '~>2'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
@@ -45,6 +49,7 @@ group :development do
 end
 
 group :test do
+  gem 'faker', '~>2'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
